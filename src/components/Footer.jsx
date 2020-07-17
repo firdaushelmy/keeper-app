@@ -3,11 +3,13 @@ import React from 'react';
 function Footer() {
   const getYear = new Date().getFullYear()
   return (
-    <p>
-      Copyright ⓒ
-      {' '}
-      {getYear}
-    </p>
+    <footer>
+      <p>
+        Copyright ⓒ
+        {' '}
+        {getYear}
+      </p>
+    </footer>
   )
 };
 
