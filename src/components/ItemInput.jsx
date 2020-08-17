@@ -13,14 +13,14 @@ function ItemInput() {
       <form>
         <input
           name='title'
-          placeholder='Title'
+          placeholder='Add a title'
           type='text'
           onChange={handleChange}
           value={inputText}
         />
         <textarea
           name='content'
-          placeholder='fill up note'
+          placeholder='Fill up Note'
           rows='3'
           type='text'
           onChange={handleChange}
