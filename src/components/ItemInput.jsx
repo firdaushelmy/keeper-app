@@ -4,13 +4,14 @@ function ItemInput() {
   const [titleInputText, setTitleInputText] = useState('');
   const [noteInputText, setNoteInputText] = useState('');
 
-  function TitleHandleChange(event) {
+  function handleChange(event) {
     const newValue = event.target.value;
-    setTitleInputText(newValue);
-  }
-  function NoteHandleChange(event) {
-    const newValue = event.target.value;
-    setNoteInputText(newValue);
+    if (event.target.name === 'title') {
+      setTitleInputText(newValue);
+    }
+    if (event.target.name === 'content') {
+      setNoteInputText(newValue);
+    }
   }
 
   return (
@@ -20,7 +21,7 @@ function ItemInput() {
           name='title'
           placeholder='Add a title'
           type='text'
-          onChange={TitleHandleChange}
+          onChange={handleChange}
           value={titleInputText}
         />
         <textarea
@@ -28,7 +29,7 @@ function ItemInput() {
           placeholder='Fill up Note'
           rows='3'
           type='text'
-          onChange={NoteHandleChange}
+          onChange={handleChange}
           value={noteInputText}
         />
         <button type='submit'>
