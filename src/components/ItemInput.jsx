@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 
 function ItemInput() {
-  const [inputText, setInputText] = useState('');
+  const [titleInputText, setTitleInputText] = useState('');
+  const [noteInputText, setNoteInputText] = useState('');
 
-  function handleChange(event) {
+  function TitleHandleChange(event) {
     const newValue = event.target.value;
-    setInputText(newValue);
+    setTitleInputText(newValue);
+  }
+  function NoteHandleChange(event) {
+    const newValue = event.target.value;
+    setNoteInputText(newValue);
   }
 
   return (
@@ -15,16 +20,16 @@ function ItemInput() {
           name='title'
           placeholder='Add a title'
           type='text'
-          onChange={handleChange}
-          value={inputText}
+          onChange={TitleHandleChange}
+          value={titleInputText}
         />
         <textarea
           name='content'
           placeholder='Fill up Note'
           rows='3'
           type='text'
-          onChange={handleChange}
-          value={inputText}
+          onChange={NoteHandleChange}
+          value={noteInputText}
         />
         <button type='submit'>
           <span>add</span>
