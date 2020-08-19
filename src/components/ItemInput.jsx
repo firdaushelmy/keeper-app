@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-function ItemInput() {
+function ItemInput({ addItem }) {
   const [titleInputText, setTitleInputText] = useState('');
   const [noteInputText, setNoteInputText] = useState('');
 
@@ -32,12 +33,23 @@ function ItemInput() {
           onChange={handleChange}
           value={noteInputText}
         />
-        <button type='submit'>
+        <button
+          type='submit'
+          onClick={() => {
+            addItem({ title: titleInputText, note: noteInputText });
+            setTitleInputText('');
+            setNoteInputText('');
+          }}
+        >
           <span>add</span>
         </button>
       </form>
     </div>
   );
 }
+
+ItemInput.propTypes = {
+  addItem: PropTypes.string.isRequired,
+};
 
 export default ItemInput;

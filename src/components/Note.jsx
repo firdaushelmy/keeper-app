@@ -6,11 +6,11 @@ const Note = ({ title, content }) => (
     <h1>{title}</h1>
     <p>{content}</p>
   </div>
-)
+);
 
 Note.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
-}
+};
 
 export default Note;
