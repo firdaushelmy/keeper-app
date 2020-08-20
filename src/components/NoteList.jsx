@@ -17,7 +17,7 @@ function NoteList({ onChecked, id, text }) {
   );
 }
 
-ToDoItem.propTypes = {
+NoteList.propTypes = {
   onChecked: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,

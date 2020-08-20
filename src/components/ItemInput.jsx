@@ -2,17 +2,25 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 function ItemInput({ addItem }) {
-  const [titleInputText, setTitleInputText] = useState('');
-  const [noteInputText, setNoteInputText] = useState('');
+  const [note, setNote] = useState({
+    title: '',
+    content: '',
+  });
 
   function handleChange(event) {
-    const newValue = event.target.value;
-    if (event.target.name === 'title') {
-      setTitleInputText(newValue);
-    }
-    if (event.target.name === 'content') {
-      setNoteInputText(newValue);
-    }
+    const { name, value } = event.target;
+
+    setNote((prevNote) => {
+      return {
+        ...prevNote,
+        [name]: value,
+      };
+    });
+  }
+
+  function submitNote(event) {
+    addItem(note);
+    event.preventDefault();
   }
 
   return (
@@ -23,7 +31,7 @@ function ItemInput({ addItem }) {
           placeholder='Add a title'
           type='text'
           onChange={handleChange}
-          value={titleInputText}
+          value={note.title}
         />
         <textarea
           name='content'
@@ -31,16 +39,9 @@ function ItemInput({ addItem }) {
           rows='3'
           type='text'
           onChange={handleChange}
-          value={noteInputText}
+          value={note.content}
         />
-        <button
-          type='submit'
-          onClick={() => {
-            addItem({ title: titleInputText, note: noteInputText });
-            setTitleInputText('');
-            setNoteInputText('');
-          }}
-        >
+        <button type='submit' onClick={submitNote}>
           <span>add</span>
         </button>
       </form>

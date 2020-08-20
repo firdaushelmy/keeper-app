@@ -1,22 +1,17 @@
 import React, { useState } from 'react';
+// import { v4 as uuidv4 } from 'uuid';
 import ItemInput from './ItemInput';
 import Header from './Header';
 import Footer from './Footer';
-import notes from './notes';
-import createNotes from './createNotes';
+import Note from './Note';
 
 function App() {
-  const [items, setItems] = useState({});
+  const [items, setItems] = useState([]);
 
-  function addItem({ titleInputText, noteInputText }) {
-    if (titleInputText !== '') {
+  function addItem(newItem) {
+    if (newItem !== '') {
       setItems((prevItems) => {
-        return [...prevItems, titleInputText];
-      });
-    }
-    if (noteInputText !== '') {
-      setItems((prevItems) => {
-        return [...prevItems, noteInputText];
+        return [...prevItems, newItem];
       });
     }
   }
@@ -25,7 +20,9 @@ function App() {
     <div>
       <Header />
       <ItemInput addItem={addItem} />
-      {notes.map(createNotes)}
+      {items.map((noteItem) => (
+        <Note title={noteItem.title} content={noteItem.content} />
+      ))}
       <Footer />
     </div>
   );
