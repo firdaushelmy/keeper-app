@@ -20,6 +20,7 @@ function ItemInput({ addItem }) {
 
   function submitNote(event) {
     addItem(note);
+    setNote({ title: '', content: '' });
     event.preventDefault();
   }
 
