@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
+import Zoom from '@material-ui/core/Zoom';
 
 function ItemInput({ addItem }) {
   const [note, setNote] = useState({
@@ -42,9 +45,13 @@ function ItemInput({ addItem }) {
           onChange={handleChange}
           value={note.content}
         />
-        <button type='submit' onClick={submitNote}>
-          <span>add</span>
-        </button>
+        <Zoom in='true'>
+          <Fab type='submit' onClick={submitNote}>
+            <span>
+              <AddIcon />
+            </span>
+          </Fab>
+        </Zoom>
       </form>
     </div>
   );

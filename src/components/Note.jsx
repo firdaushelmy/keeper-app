@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const Note = ({ onChecked, id, title, content }) => {
   function handleClick() {
@@ -11,7 +12,7 @@ const Note = ({ onChecked, id, title, content }) => {
       <h1>{title}</h1>
       <p>{content}</p>
       <button type='button' onKeyDown={handleClick} onClick={handleClick}>
-        Delete
+        <DeleteIcon />
       </button>
     </div>
   );
