@@ -26,7 +26,7 @@ function ItemInput({ addItem }) {
 
   return (
     <div>
-      <form>
+      <form className='create-note'>
         <input
           name='title'
           placeholder='Add a title'
