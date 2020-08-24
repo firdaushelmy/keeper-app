@@ -5,6 +5,7 @@ import AddIcon from '@material-ui/icons/Add';
 import Zoom from '@material-ui/core/Zoom';
 
 function ItemInput({ addItem }) {
+  const [isExpanded, setExpanded] = useState(false);
   const [note, setNote] = useState({
     title: '',
     content: '',
@@ -27,25 +28,32 @@ function ItemInput({ addItem }) {
     event.preventDefault();
   }
 
+  function expand() {
+    setExpanded(true);
+  }
+
   return (
     <div>
       <form className='create-note'>
-        <input
-          name='title'
-          placeholder='Add a title'
-          type='text'
-          onChange={handleChange}
-          value={note.title}
-        />
+        {isExpanded ? (
+          <input
+            name='title'
+            placeholder='Add a title'
+            type='text'
+            onChange={handleChange}
+            value={note.title}
+          />
+        ) : null}
         <textarea
           name='content'
           placeholder='Fill up Note'
-          rows='3'
+          onClick={expand}
+          rows={isExpanded ? 3 : 1}
           type='text'
           onChange={handleChange}
           value={note.content}
         />
-        <Zoom in='true'>
+        <Zoom in={isExpanded}>
           <Fab type='submit' onClick={submitNote}>
             <span>
               <AddIcon />
