@@ -1,16 +1,14 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
 
-function Footer() {
-  const getYear = new Date().getFullYear()
+const Footer = () => {
+  const getYear = new Date().getFullYear();
+
   return (
     <footer>
-      <p>
-        Copyright ⓒ
-        {' '}
-        {getYear}
-      </p>
+      <p>Copyright ⓒ{getYear}</p>
     </footer>
-  )
+  );
 };
 
-export default Footer
+export default Footer;

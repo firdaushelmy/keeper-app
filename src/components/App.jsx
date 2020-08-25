@@ -8,21 +8,21 @@ import Note from './Note';
 function App() {
   const [items, setItems] = useState([]);
 
-  function addItem(newItem) {
+  const addItem = (newItem) => {
     if (newItem !== '') {
       setItems((prevItems) => {
         return [...prevItems, newItem];
       });
     }
-  }
+  };
 
-  function deleteItem(id) {
+  const deleteItem = (id) => {
     setItems((prevItems) => {
       return prevItems.filter((item, index) => {
         return index !== id;
       });
     });
-  }
+  };
 
   return (
     <div>

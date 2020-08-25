@@ -4,14 +4,14 @@ import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import Zoom from '@material-ui/core/Zoom';
 
-function ItemInput({ addItem }) {
+const ItemInput = ({ addItem }) => {
   const [isExpanded, setExpanded] = useState(false);
   const [note, setNote] = useState({
     title: '',
     content: '',
   });
 
-  function handleChange(event) {
+  const handleChange = (event) => {
     const { name, value } = event.target;
 
     setNote((prevNote) => {
@@ -20,17 +20,17 @@ function ItemInput({ addItem }) {
         [name]: value,
       };
     });
-  }
+  };
 
-  function submitNote(event) {
+  const submitNote = (event) => {
     addItem(note);
     setNote({ title: '', content: '' });
     event.preventDefault();
-  }
+  };
 
-  function expand() {
+  const expand = () => {
     setExpanded(true);
-  }
+  };
 
   return (
     <div>
@@ -63,7 +63,7 @@ function ItemInput({ addItem }) {
       </form>
     </div>
   );
-}
+};
 
 ItemInput.propTypes = {
   addItem: PropTypes.string.isRequired,
