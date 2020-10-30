@@ -8,13 +8,15 @@ const Note = ({ onChecked, id, title, content }) => {
   }
 
   return (
-    <div className='note'>
-      <h1>{title}</h1>
-      <p>{content}</p>
-      <button type='button' onKeyDown={handleClick} onClick={handleClick}>
-        <DeleteIcon />
-      </button>
-    </div>
+    <header>
+      <div className='note'>
+        <h1>{title}</h1>
+        <p>{content}</p>
+        <button type='button' onKeyDown={handleClick} onClick={handleClick}>
+          <DeleteIcon />
+        </button>
+      </div>
+    </header>
   );
 };
 
